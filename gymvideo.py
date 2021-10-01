@@ -7,6 +7,7 @@ from pyvirtualdisplay import Display
 d = Display()
 d.start()
 
+import gym
 import matplotlib.pyplot as plt
 from matplotlib import animation
 from matplotlib.animation import PillowWriter
