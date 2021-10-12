@@ -20,8 +20,9 @@ class GymVideo(gym.Wrapper):
         # assert env.unwrapped.get_action_meanings()[1] == 'FIRE'
         # assert len(env.unwrapped.get_action_meanings()) >= 3
 
-    def step(self, ac):
-        self.frames.append(self.env.render(mode='rgb_array'))
+    def step(self, ac, monitor_frames=False):
+        if monitor_frames:
+            self.frames.append(self.env.render(mode='rgb_array'))
         return self.env.step(ac)
 
     def save_video(self, save_name=None, display_inline=False):
