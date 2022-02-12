@@ -36,7 +36,7 @@ class GymVideo(gym.Wrapper):
         """
         params:
             save_name      : default None. If you set save_name, gif animation will be saved.
-            figsize.       : default None, If you set figsize (ex:(5, 5)), plt.figure(figsize=figsize) will be executed.
+            figsize        : default None, If you set figsize (ex:(5, 5)), plt.figure(figsize=figsize) will be executed.
             display_inline : You should use when you set save_name.
                              if you set display_inline True, gif animation will be displayed inline.
         """
