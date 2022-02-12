@@ -1,6 +1,8 @@
-!apt update
-!apt install xvfb
-!pip install pyvirtualdisplay
+import subprocess
+
+subprocess.call('apt update')
+subprocess.call('apt install xvfb')
+subprocess.call('pip install pyvirtualdisplay')
 
 from pyvirtualdisplay import Display
 
