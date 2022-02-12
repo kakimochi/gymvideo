@@ -16,9 +16,10 @@ from IPython.display import HTML
 class GymVideo(gym.Wrapper):
     def __init__(self, env):
         gym.Wrapper.__init__(self, env)
+     
+    def reset(self):
         self.frames = []
-        # assert env.unwrapped.get_action_meanings()[1] == 'FIRE'
-        # assert len(env.unwrapped.get_action_meanings()) >= 3
+        return self.env.reset()
 
     def step(self, ac, monitor_frames=False):
         if monitor_frames:
