@@ -32,13 +32,17 @@ class GymVideo(gym.Wrapper):
             self.frames.append(self.env.render(mode='rgb_array'))
         return self.env.step(ac)
 
-    def save_video(self, save_name=None, display_inline=False):
+    def save_video(self, save_name=None, figsize=None, display_inline=False):
         """
         params:
             save_name      : default None. If you set save_name, gif animation will be saved.
+            figsize.       : default None, If you set figsize (ex:(5, 5)), plt.figure(figsize=figsize) will be executed.
             display_inline : You should use when you set save_name.
                              if you set display_inline True, gif animation will be displayed inline.
         """
+        if figsize != None:
+            plt.figure(figsize=figsize)
+            
         patch = plt.imshow(self.frames[0], cmap='gray')
         plt.axis('off')
         
