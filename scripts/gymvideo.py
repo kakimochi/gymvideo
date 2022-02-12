@@ -18,9 +18,13 @@ from IPython.display import HTML
 class GymVideo(gym.Wrapper):
     def __init__(self, env):
         gym.Wrapper.__init__(self, env)
-     
-    def reset(self):
         self.frames = []
+     
+    def reset(self, reset_frames=False):
+        # フレームをリセットする場合はリストを空に
+        if reset_frames:
+            self.frames = []
+            
         return self.env.reset()
 
     def step(self, ac, monitor_frames=True):
