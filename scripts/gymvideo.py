@@ -1,8 +1,8 @@
 import subprocess
 
-# subprocess.call('apt update')
-subprocess.call('pip install xvfb')
-subprocess.call('pip install pyvirtualdisplay')
+subprocess.call(['apt', 'update'])
+subprocess.call(['pip', 'install', 'xvfb'])
+subprocess.call(['pip', 'install', 'pyvirtualdisplay'])
 
 from pyvirtualdisplay import Display
 
