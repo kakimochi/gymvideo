@@ -27,7 +27,7 @@ class GymVideo(gym.Wrapper):
             
         return self.env.reset()
 
-    def step(self, ac, monitor_frames=True):
+    def step(self, ac, monitor_frames=False):
         if monitor_frames:
             self.frames.append(self.env.render(mode='rgb_array'))
         return self.env.step(ac)
