@@ -60,3 +60,14 @@ class GymVideo(gym.Wrapper):
         else:
             display(HTML(anim.to_jshtml(default_mode='once')))
         plt.close()
+        
+    def execute_one_episode(self, model, reset_frames=True):
+        # 1エピソードを実行しフレームに格納
+        obs = self.reset(reset_frames=reset_frames)
+
+        while True:
+            action, _state = model.predict(obs, deterministic=True)
+            obs, reward, done, info = self.step(action, monitor_frames=True)
+            env.render()
+            if done:
+                break
