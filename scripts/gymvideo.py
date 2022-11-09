@@ -68,6 +68,6 @@ class GymVideo(gym.Wrapper):
         while True:
             action, _state = model.predict(obs, deterministic=True)
             obs, reward, done, info = self.step(action, monitor_frames=True)
-            env.render()
+            self.env.render()
             if done:
                 break
