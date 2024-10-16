@@ -29,7 +29,7 @@ class GymVideo(gym.Wrapper):
 
     def step(self, ac, monitor_frames=False):
         if monitor_frames:
-            self.frames.append(self.env.render(mode='rgb_array'))
+            self.frames.append(self.env.render())
         return self.env.step(ac)
 
     def save_video(self, save_name=None, figsize=None, display_inline=False):
